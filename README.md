@@ -17,7 +17,10 @@ Any ideas? Make a PR and let discuss. :)
 
 ## Test
 
-`npm run test`
+```bash
+npm install 
+npm run test
+```
 
 You can swap the usecase implementation of the test easily in the source code, play with it!
 
