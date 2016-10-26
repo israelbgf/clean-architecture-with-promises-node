@@ -1,0 +1,15 @@
+{
+  "name": "promises-showdown",
+  "version": "1.0.0",
+  "description": "",
+  "main": "PromiseTest.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha $(find . -name '*Test.js')"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2"
+  }
+}
