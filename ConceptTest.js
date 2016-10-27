@@ -39,7 +39,6 @@ function fetchConfigForUserUsecaseWithNestedPromise(userName, fetchUsersGateway,
                         })
                 } else {
                     resolve({action: NO_USER, data: 'No users. :('})
-                    throw new PromiseStop()
                 }
             })
             .catch((error) => {
@@ -60,7 +59,7 @@ describe('Clean Architecture with Promises concept', () => {
 
 
     let usecase = fetchConfigForUserUsecaseWithException
-    // let usecase = fetchConfigForUserUsecaseWithNestedPromise
+    //let usecase = fetchConfigForUserUsecaseWithNestedPromise
 
     it('should fetch user config (the happy path)', () => {
         return usecase('user1', fetchUsersGatewayFake, fetchUserConfigGatewayFake).then(result => {
