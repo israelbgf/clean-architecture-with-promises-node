@@ -1,6 +1,6 @@
 assert = require('chai').assert
 
-class PromiseStop extends Error {
+class PromiseChainException {
 }
 
 const FOUND_CONFIG = 0
@@ -14,14 +14,14 @@ function fetchConfigForUserUsecaseWithException(userName, fetchUsersGateway, fet
                     return fetchUserConfigGateway(users[0])
                 } else {
                     resolve({action: NO_USER, data: 'No users. :('}) // this is the output to the user, implemented apart from the app core
-                    throw new PromiseStop() // You can resolve your promise and still raise an Error to break the chain...
+                    throw new PromiseChainException() // You can resolve your promise and still raise an Error to break the chain...
                 }
             })
             .then((config) => {
                 resolve({action: FOUND_CONFIG, data: config}) // this then() won't be executed in case of failure
             })
             .catch((error) => {
-                if (!(error instanceof PromiseStop)) { // ...but we still have to ignore our custom error, and redirect the real ones.
+                if (!(error instanceof PromiseChainException)) { // ...but we still have to ignore our custom error, and redirect the real ones.
                     reject(error)
                 }
             })
